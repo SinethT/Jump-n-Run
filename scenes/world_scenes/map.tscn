@@ -1,0 +1,404 @@
+[gd_scene load_steps=28 format=3 uid="uid://kbqrle70j4di"]
+
+[ext_resource type="Script" path="res://scripts/core/Map.gd" id="1_8pinc"]
+[ext_resource type="Texture2D" path="res://Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 1/Screenshot 2024-06-03 at 7.06.37 PM.png" id="1_ddm4k"]
+[ext_resource type="Script" path="res://scripts/core/MapLevel.gd" id="2_vl2ks"]
+[ext_resource type="Texture2D" uid="uid://crsaltl4gqoge" path="res://circle3.png" id="4_o6ul7"]
+[ext_resource type="Texture2D" uid="uid://dhbnnj5f12sf5" path="res://Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/01.png" id="5_5ljoo"]
+[ext_resource type="Texture2D" path="res://Treasure Hunters/Pirate Treasure/Sprites/Golden Skull/Untitled Background Removed.png" id="6_u5u8w"]
+[ext_resource type="Texture2D" uid="uid://r26rdocvoi18" path="res://heart pixel art 32x32.png" id="7_0xdca"]
+[ext_resource type="Texture2D" uid="uid://n2q0d4udf8gh" path="res://Assets/player/Green/idle/tile000.png" id="9_hlqs8"]
+[ext_resource type="Texture2D" uid="uid://dw5ac6ls2em1m" path="res://Assets/player/Green/idle/tile001.png" id="10_f06u8"]
+[ext_resource type="Texture2D" uid="uid://b4fk2sinlohd2" path="res://Assets/player/Green/idle/tile002.png" id="11_uatw1"]
+[ext_resource type="Texture2D" uid="uid://d0d2cuoru1b0a" path="res://Assets/player/Green/idle/tile003.png" id="12_kckag"]
+[ext_resource type="Texture2D" uid="uid://3mh8i6sosxyy" path="res://Assets/player/Green/idle/tile004.png" id="13_iyee7"]
+[ext_resource type="Texture2D" uid="uid://dbxwr8cvo640u" path="res://Assets/player/Green/run/tile000.png" id="14_rdiwe"]
+[ext_resource type="Texture2D" uid="uid://bcbtt443st10r" path="res://Assets/player/Green/run/tile001.png" id="15_wga5n"]
+[ext_resource type="Texture2D" uid="uid://dwb1gs1nluhl5" path="res://Assets/player/Green/run/tile002.png" id="16_p7fly"]
+[ext_resource type="Texture2D" uid="uid://xdpf08crwc3" path="res://Assets/player/Green/run/tile003.png" id="17_is20h"]
+[ext_resource type="Texture2D" uid="uid://cj830jt6sqk5k" path="res://Assets/player/Green/run/tile004.png" id="18_isok1"]
+[ext_resource type="Texture2D" uid="uid://c1550ko7vvwo2" path="res://Assets/player/Green/run/tile005.png" id="19_13rj2"]
+[ext_resource type="Texture2D" uid="uid://okf07bpis3of" path="res://Assets/player/Green/jump/tile000.png" id="20_v15j5"]
+[ext_resource type="Texture2D" uid="uid://dbyxgsukv5mkg" path="res://Assets/player/Green/jump/tile001.png" id="21_iv7j1"]
+
+[sub_resource type="Animation" id="Animation_t6g67"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CoinSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-37, -30)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CoinSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SkullSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.08165e-12, -53)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SkullSprite:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HealthSprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(30, -37)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HealthSprite:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6agcg"]
+resource_name = "show"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CoinSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(-37, -30)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CoinSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SkullSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(2.08165e-12, -53)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SkullSprite:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HealthSprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(37, -30)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HealthSprite:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1otjr"]
+_data = {
+"RESET": SubResource("Animation_t6g67"),
+"show": SubResource("Animation_6agcg")
+}
+
+[sub_resource type="Animation" id="Animation_ii8eo"]
+resource_name = "idle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("9_hlqs8"), ExtResource("10_f06u8"), ExtResource("11_uatw1"), ExtResource("12_kckag"), ExtResource("13_iyee7")]
+}
+
+[sub_resource type="Animation" id="Animation_yf485"]
+resource_name = "run"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("14_rdiwe"), ExtResource("15_wga5n"), ExtResource("16_p7fly"), ExtResource("17_is20h"), ExtResource("18_isok1"), ExtResource("19_13rj2")]
+}
+
+[sub_resource type="Animation" id="Animation_xci34"]
+resource_name = "jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("20_v15j5"), ExtResource("21_iv7j1")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7t6iq"]
+_data = {
+"idle": SubResource("Animation_ii8eo"),
+"run": SubResource("Animation_yf485"),
+"select": SubResource("Animation_xci34")
+}
+
+[node name="Map" type="Node2D"]
+script = ExtResource("1_8pinc")
+
+[node name="BGcolour" type="ColorRect" parent="."]
+offset_left = -2000.0
+offset_top = -2000.0
+offset_right = -1600.0
+offset_bottom = -1600.0
+scale = Vector2(10, 10)
+color = Color(0.572549, 0.662745, 0.807843, 1)
+
+[node name="background" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -372.0
+offset_top = -321.0
+offset_right = 1124.0
+offset_bottom = 965.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ddm4k")
+
+[node name="LevelHolder" type="Node2D" parent="."]
+
+[node name="Level1" type="Node2D" parent="LevelHolder" node_paths=PackedStringArray("down", "right")]
+position = Vector2(-223, -121)
+script = ExtResource("2_vl2ks")
+down = NodePath("../Level3")
+right = NodePath("../Level2")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelHolder/Level1"]
+texture = ExtResource("4_o6ul7")
+
+[node name="StatDisplay" type="Node2D" parent="LevelHolder/Level1"]
+visible = false
+
+[node name="CoinSprite" type="Sprite2D" parent="LevelHolder/Level1/StatDisplay"]
+position = Vector2(-37, -30)
+scale = Vector2(3, 3)
+texture = ExtResource("5_5ljoo")
+
+[node name="SkullSprite" type="Sprite2D" parent="LevelHolder/Level1/StatDisplay"]
+position = Vector2(2.08165e-12, -53)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_u5u8w")
+
+[node name="HealthSprite" type="Sprite2D" parent="LevelHolder/Level1/StatDisplay"]
+position = Vector2(30, -37)
+texture = ExtResource("7_0xdca")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelHolder/Level1/StatDisplay"]
+libraries = {
+"": SubResource("AnimationLibrary_1otjr")
+}
+
+[node name="Level2" type="Node2D" parent="LevelHolder" node_paths=PackedStringArray("down", "left")]
+position = Vector2(147, -145)
+script = ExtResource("2_vl2ks")
+up = NodePath("")
+down = NodePath("../Level4")
+left = NodePath("../Level1")
+right = NodePath("")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelHolder/Level2"]
+texture = ExtResource("4_o6ul7")
+
+[node name="StatDisplay" type="Node2D" parent="LevelHolder/Level2"]
+visible = false
+
+[node name="CoinSprite" type="Sprite2D" parent="LevelHolder/Level2/StatDisplay"]
+position = Vector2(-37, -30)
+scale = Vector2(3, 3)
+texture = ExtResource("5_5ljoo")
+
+[node name="SkullSprite" type="Sprite2D" parent="LevelHolder/Level2/StatDisplay"]
+position = Vector2(2.08165e-12, -53)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_u5u8w")
+
+[node name="HealthSprite" type="Sprite2D" parent="LevelHolder/Level2/StatDisplay"]
+position = Vector2(30, -37)
+texture = ExtResource("7_0xdca")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelHolder/Level2/StatDisplay"]
+libraries = {
+"": SubResource("AnimationLibrary_1otjr")
+}
+
+[node name="Level3" type="Node2D" parent="LevelHolder" node_paths=PackedStringArray("up", "right")]
+position = Vector2(-225, 203)
+script = ExtResource("2_vl2ks")
+up = NodePath("../Level1")
+left = NodePath("")
+right = NodePath("../Level4")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelHolder/Level3"]
+texture = ExtResource("4_o6ul7")
+
+[node name="StatDisplay" type="Node2D" parent="LevelHolder/Level3"]
+visible = false
+
+[node name="CoinSprite" type="Sprite2D" parent="LevelHolder/Level3/StatDisplay"]
+position = Vector2(-37, -30)
+scale = Vector2(3, 3)
+texture = ExtResource("5_5ljoo")
+
+[node name="SkullSprite" type="Sprite2D" parent="LevelHolder/Level3/StatDisplay"]
+position = Vector2(2.08165e-12, -53)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_u5u8w")
+
+[node name="HealthSprite" type="Sprite2D" parent="LevelHolder/Level3/StatDisplay"]
+position = Vector2(30, -37)
+texture = ExtResource("7_0xdca")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelHolder/Level3/StatDisplay"]
+libraries = {
+"": SubResource("AnimationLibrary_1otjr")
+}
+
+[node name="Level4" type="Node2D" parent="LevelHolder" node_paths=PackedStringArray("up", "left")]
+position = Vector2(124, 91)
+script = ExtResource("2_vl2ks")
+up = NodePath("../Level2")
+down = NodePath("")
+left = NodePath("../Level3")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelHolder/Level4"]
+texture = ExtResource("4_o6ul7")
+
+[node name="StatDisplay" type="Node2D" parent="LevelHolder/Level4"]
+visible = false
+
+[node name="CoinSprite" type="Sprite2D" parent="LevelHolder/Level4/StatDisplay"]
+position = Vector2(-37, -30)
+scale = Vector2(3, 3)
+texture = ExtResource("5_5ljoo")
+
+[node name="SkullSprite" type="Sprite2D" parent="LevelHolder/Level4/StatDisplay"]
+position = Vector2(2.08165e-12, -53)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_u5u8w")
+
+[node name="HealthSprite" type="Sprite2D" parent="LevelHolder/Level4/StatDisplay"]
+position = Vector2(30, -37)
+texture = ExtResource("7_0xdca")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelHolder/Level4/StatDisplay"]
+libraries = {
+"": SubResource("AnimationLibrary_1otjr")
+}
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(-220, -135)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("13_iyee7")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_7t6iq")
+}

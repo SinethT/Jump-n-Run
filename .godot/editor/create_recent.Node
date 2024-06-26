@@ -1,0 +1,14 @@
+TileMap
+Label
+Sprite2D
+Marker2D
+AnimationPlayer
+CollisionShape2D
+Area2D
+Node2D
+TextureRect
+TextEdit
+ColorRect
+Camera2D
+Button
+HBoxContainer

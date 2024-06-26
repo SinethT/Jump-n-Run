@@ -1,0 +1,146 @@
+[gd_scene load_steps=23 format=3 uid="uid://bc72sxvgvykaw"]
+
+[ext_resource type="Texture2D" uid="uid://bcygtnmh1w6qs" path="res://Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 01.png" id="1_eo8hq"]
+[ext_resource type="Script" path="res://scripts/enemies/sabertooth.gd" id="1_ri74k"]
+[ext_resource type="PackedScene" uid="uid://bo7kvx6aybg41" path="res://scenes/ui/healthbar.tscn" id="2_16fx4"]
+[ext_resource type="Texture2D" uid="uid://b84sb5rnjn35n" path="res://Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 02.png" id="2_ek4tl"]
+[ext_resource type="Texture2D" uid="uid://djimrtn5mexrq" path="res://Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/09-Dead Hit/Dead Hit 04.png" id="2_nkywf"]
+[ext_resource type="Texture2D" uid="uid://1mgma1sibwvk" path="res://Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 03.png" id="3_f4tbf"]
+[ext_resource type="Texture2D" uid="uid://cek8mt7j8po38" path="res://Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 04.png" id="4_q1a0f"]
+[ext_resource type="Texture2D" uid="uid://iyubieoepsv8" path="res://Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 05.png" id="5_l3q1e"]
+[ext_resource type="Texture2D" uid="uid://dtyogn2xkv53u" path="res://Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 06.png" id="6_caxfx"]
+[ext_resource type="Texture2D" uid="uid://djfxe7k81d3me" path="res://Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/09-Dead Hit/Dead Hit 01.png" id="9_5gt5h"]
+[ext_resource type="Texture2D" uid="uid://bqb2mtt82l1ai" path="res://Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/09-Dead Hit/Dead Hit 02.png" id="10_7ec3r"]
+[ext_resource type="Texture2D" uid="uid://6iufdele5nbd" path="res://Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/09-Dead Hit/Dead Hit 03.png" id="11_3wwlh"]
+[ext_resource type="Texture2D" uid="uid://bfesgb0b1gyvm" path="res://Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/08-Hit/Hit 01.png" id="13_ygpug"]
+[ext_resource type="Texture2D" uid="uid://bcyyrvkjvb1ol" path="res://Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/08-Hit/Hit 02.png" id="14_8uejp"]
+[ext_resource type="Texture2D" uid="uid://dty8sj3beo5c2" path="res://Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/08-Hit/Hit 03.png" id="15_dr6yp"]
+[ext_resource type="Texture2D" uid="uid://uceomgiv2itj" path="res://Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/08-Hit/Hit 04.png" id="16_gyxmq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gxox8"]
+radius = 8.05178
+height = 23.7028
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t43t6"]
+radius = 6.29953
+height = 19.1077
+
+[sub_resource type="Animation" id="Animation_j1uip"]
+resource_name = "die"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("9_5gt5h"), ExtResource("10_7ec3r"), ExtResource("11_3wwlh"), ExtResource("2_nkywf")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_i8ppt"]
+resource_name = "hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("13_ygpug"), ExtResource("14_8uejp"), ExtResource("15_dr6yp"), ExtResource("16_gyxmq")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"get_hit"
+}, {
+"args": [],
+"method": &"get_hit"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_vu5lt"]
+resource_name = "run"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_eo8hq"), ExtResource("2_ek4tl"), ExtResource("3_f4tbf"), ExtResource("4_q1a0f"), ExtResource("5_l3q1e"), ExtResource("6_caxfx")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4lin7"]
+_data = {
+"die": SubResource("Animation_j1uip"),
+"hit": SubResource("Animation_i8ppt"),
+"run": SubResource("Animation_vu5lt")
+}
+
+[node name="sabertooth" type="CharacterBody2D" groups=["enemies"]]
+position = Vector2(2.08165e-12, 2.08165e-12)
+collision_layer = 2
+script = ExtResource("1_ri74k")
+
+[node name="healthbar" parent="." instance=ExtResource("2_16fx4")]
+offset_top = -17.0
+offset_bottom = -17.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_nkywf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.565138, -1.02811)
+shape = SubResource("CapsuleShape2D_gxox8")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0.117247, -0.894045)
+shape = SubResource("CapsuleShape2D_t43t6")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-9, -2.08165e-12)
+target_position = Vector2(2.08165e-12, 15)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4lin7")
+}
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

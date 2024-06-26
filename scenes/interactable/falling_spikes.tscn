@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://btslsogi1vgsc"]
+
+[ext_resource type="Texture2D" uid="uid://b1x85fcouembn" path="res://Treasure Hunters/Palm Tree Island/Sprites/Objects/Spikes/Spikes.png" id="1_6hkac"]
+[ext_resource type="Script" path="res://scripts/interactable/falling_spikes.gd" id="1_dtngv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xf4bp"]
+size = Vector2(44, 142)
+
+[sub_resource type="Animation" id="Animation_gs64p"]
+resource_name = "shake"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-2, 2.08165e-12), Vector2(0, 0), Vector2(2, 2.08165e-12)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fall"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ph8ib"]
+_data = {
+"shake": SubResource("Animation_gs64p")
+}
+
+[node name="FallingSpikes" type="Node2D"]
+script = ExtResource("1_dtngv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 3.14159
+texture = ExtResource("1_6hkac")
+
+[node name="Hitbox" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
+polygon = PackedVector2Array(-13, -16, -13, -10, -14, -10, -14, -9, -15, -9, -15, -6, -14, -6, -14, -4, -13, -4, -13, -2, -12, -2, -12, -1, -11, -1, 4, -1, 4, 0, 5, 0, 5, -1, 6, -1, 6, -3, 7, -3, 7, -5, 8, -5, 13, -5, 13, -6, 14, -6, 14, -8, 15, -8, 15, -10, 16, -10, 16, -13, 15, -13, 15, -14, 14, -14, 14, -16)
+
+[node name="PlayerDetect" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect"]
+position = Vector2(0, 55)
+shape = SubResource("RectangleShape2D_xf4bp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ph8ib")
+}
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_entered" from="PlayerDetect" to="." method="_on_player_detect_area_entered"]

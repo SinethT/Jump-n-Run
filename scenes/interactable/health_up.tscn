@@ -1,0 +1,57 @@
+[gd_scene load_steps=12 format=3 uid="uid://d24hl6yykbcsg"]
+
+[ext_resource type="Script" path="res://scripts/interactable/health_up.gd" id="1_0oi11"]
+[ext_resource type="Texture2D" uid="uid://b5rqa2ge18qoa" path="res://Treasure Hunters/Pirate Treasure/Sprites/Red Potion/01.png" id="1_u5lwn"]
+[ext_resource type="Texture2D" uid="uid://st148t3ab2fb" path="res://Treasure Hunters/Pirate Treasure/Sprites/Red Potion/02.png" id="2_cpume"]
+[ext_resource type="Texture2D" uid="uid://cce1dxx8vknq4" path="res://Treasure Hunters/Pirate Treasure/Sprites/Red Potion/03.png" id="3_he86w"]
+[ext_resource type="Texture2D" uid="uid://cjueopv42h3if" path="res://Treasure Hunters/Pirate Treasure/Sprites/Red Potion/04.png" id="4_p4py0"]
+[ext_resource type="Texture2D" uid="uid://dqyulp5tynf8f" path="res://Treasure Hunters/Pirate Treasure/Sprites/Red Potion/05.png" id="5_nyxtn"]
+[ext_resource type="Texture2D" uid="uid://caauoiykcxjv3" path="res://Treasure Hunters/Pirate Treasure/Sprites/Red Potion/06.png" id="6_hb1yd"]
+[ext_resource type="Texture2D" uid="uid://u8i11p0lrqi6" path="res://Treasure Hunters/Pirate Treasure/Sprites/Red Potion/07.png" id="7_2rlag"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r33y3"]
+radius = 6.0
+height = 20.9245
+
+[sub_resource type="Animation" id="Animation_im525"]
+resource_name = "idle"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_u5lwn"), ExtResource("2_cpume"), ExtResource("3_he86w"), ExtResource("4_p4py0"), ExtResource("5_nyxtn"), ExtResource("6_hb1yd"), ExtResource("7_2rlag")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_smvks"]
+_data = {
+"idle": SubResource("Animation_im525")
+}
+
+[node name="HealthUp" type="Node2D"]
+script = ExtResource("1_0oi11")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_u5lwn")
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 2.24938)
+shape = SubResource("CapsuleShape2D_r33y3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_smvks")
+}
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfh5jyiwrlaxy"]
+
+[ext_resource type="Texture2D" uid="uid://8hko0sj5ep4n" path="res://Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Destroyed/4.png" id="1_dfqlw"]
+[ext_resource type="Texture2D" uid="uid://b073vphbfs1f3" path="res://Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Hit/1.png" id="2_ne82c"]
+[ext_resource type="Texture2D" uid="uid://dmgbi8bml314l" path="res://Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Destroyed/2.png" id="3_7vb62"]
+[ext_resource type="Texture2D" uid="uid://bhcyx17t5ejb6" path="res://Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Destroyed/3.png" id="4_iobsk"]
+
+[sub_resource type="Animation" id="Animation_qb1dw"]
+resource_name = "crumble"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_ne82c"), ExtResource("3_7vb62"), ExtResource("4_iobsk"), ExtResource("1_dfqlw")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(2.08165e-12, 6)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qnbvj"]
+_data = {
+"crumble": SubResource("Animation_qb1dw")
+}
+
+[node name="CannonDebris" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6.24495e-14, 0.18)
+texture = ExtResource("4_iobsk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qnbvj")
+}

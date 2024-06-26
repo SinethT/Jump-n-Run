@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://32v76ut8hc7y"]
+
+[ext_resource type="Script" path="res://scripts/interactable/moving_platform.gd" id="1_kq5mp"]
+[ext_resource type="Texture2D" uid="uid://dds604yjets87" path="res://Treasure Hunters/Palm Tree Island/Sprites/Terrain/Tile 2.png" id="2_1dwf1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onyin"]
+size = Vector2(47.7058, 15.9763)
+
+[node name="MovingPlatform" type="AnimatableBody2D"]
+script = ExtResource("1_kq5mp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_1dwf1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.125437, 1.05706)
+shape = SubResource("RectangleShape2D_onyin")
