@@ -1,27 +1,28 @@
-[gd_scene load_steps=34 format=3 uid="uid://jmcta72l23in"]
+[gd_scene load_steps=35 format=3 uid="uid://jmcta72l23in"]
 
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_q7btu"]
-[ext_resource type="Texture2D" uid="uid://0y3v01y35iwr" path="res://Assets/player/Green/crouch/tile000.png" id="5_gueum"]
-[ext_resource type="Texture2D" uid="uid://cgipal844vqc3" path="res://Assets/player/Green/crouch/tile001.png" id="6_nqs8l"]
-[ext_resource type="Texture2D" uid="uid://cgoj1penvst8a" path="res://Assets/player/Green/crouch/tile002.png" id="7_idf2n"]
-[ext_resource type="Texture2D" uid="uid://dbyxgsukv5mkg" path="res://Assets/player/Green/jump/tile001.png" id="8_xb80w"]
-[ext_resource type="Texture2D" uid="uid://buuisnalqoqkw" path="res://Assets/player/Green/idle/tile000-white.png" id="9_x0esc"]
-[ext_resource type="Texture2D" uid="uid://n2q0d4udf8gh" path="res://Assets/player/Green/idle/tile000.png" id="10_dt68y"]
-[ext_resource type="Texture2D" uid="uid://dw5ac6ls2em1m" path="res://Assets/player/Green/idle/tile001.png" id="11_3dif0"]
-[ext_resource type="Texture2D" uid="uid://b4fk2sinlohd2" path="res://Assets/player/Green/idle/tile002.png" id="12_xymky"]
-[ext_resource type="Texture2D" uid="uid://d0d2cuoru1b0a" path="res://Assets/player/Green/idle/tile003.png" id="13_l3824"]
-[ext_resource type="Texture2D" uid="uid://3mh8i6sosxyy" path="res://Assets/player/Green/idle/tile004.png" id="14_a15bf"]
-[ext_resource type="Texture2D" uid="uid://okf07bpis3of" path="res://Assets/player/Green/jump/tile000.png" id="15_tjene"]
-[ext_resource type="Texture2D" uid="uid://dbxwr8cvo640u" path="res://Assets/player/Green/run/tile000.png" id="16_8f4co"]
-[ext_resource type="Texture2D" uid="uid://bcbtt443st10r" path="res://Assets/player/Green/run/tile001.png" id="17_k2gsw"]
-[ext_resource type="Texture2D" uid="uid://3b5u16vul07a" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/16-Attack 2/Attack 2 01.png" id="18_f5d1n"]
-[ext_resource type="Texture2D" uid="uid://dwb1gs1nluhl5" path="res://Assets/player/Green/run/tile002.png" id="18_vcwxq"]
-[ext_resource type="Texture2D" uid="uid://bpo60lwbmy210" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/16-Attack 2/Attack 2 02.png" id="19_j0tns"]
-[ext_resource type="Texture2D" uid="uid://xdpf08crwc3" path="res://Assets/player/Green/run/tile003.png" id="19_wt4dv"]
-[ext_resource type="Texture2D" uid="uid://cj830jt6sqk5k" path="res://Assets/player/Green/run/tile004.png" id="20_ctleb"]
-[ext_resource type="Texture2D" uid="uid://dxbr88lcn5e3p" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/16-Attack 2/Attack 2 03.png" id="20_rhvvf"]
-[ext_resource type="Texture2D" uid="uid://c1550ko7vvwo2" path="res://Assets/player/Green/run/tile005.png" id="21_u8ygf"]
-[ext_resource type="Texture2D" uid="uid://bp7vej1vihbih" path="res://Assets/MuzzleFlash.png" id="22_oaapd"]
+[ext_resource type="PackedScene" uid="uid://dcwqld3nti0jx" path="res://scenes/ui/PlayerHealthbar.tscn" id="2_4jkwt"]
+[ext_resource type="Texture2D" uid="uid://c6qruocbldemd" path="res://Assets/player/Green/crouch/tile000.png" id="5_gueum"]
+[ext_resource type="Texture2D" uid="uid://b0cahx2q6hfkw" path="res://Assets/player/Green/crouch/tile001.png" id="6_nqs8l"]
+[ext_resource type="Texture2D" uid="uid://djbgw26hica3t" path="res://Assets/player/Green/crouch/tile002.png" id="7_idf2n"]
+[ext_resource type="Texture2D" uid="uid://3lnu25dcxkbp" path="res://Assets/player/Green/jump/tile001.png" id="8_xb80w"]
+[ext_resource type="Texture2D" uid="uid://cdpndr1pb36wk" path="res://Assets/player/Green/idle/tile000-white.png" id="9_x0esc"]
+[ext_resource type="Texture2D" uid="uid://kt7ansofbv5v" path="res://Assets/player/Green/idle/tile000.png" id="10_dt68y"]
+[ext_resource type="Texture2D" uid="uid://c34ijtk4cu3th" path="res://Assets/player/Green/idle/tile001.png" id="11_3dif0"]
+[ext_resource type="Texture2D" uid="uid://im2r20yjn6u1" path="res://Assets/player/Green/idle/tile002.png" id="12_xymky"]
+[ext_resource type="Texture2D" uid="uid://dmtviqv8rcj1k" path="res://Assets/player/Green/idle/tile003.png" id="13_l3824"]
+[ext_resource type="Texture2D" uid="uid://cb50e73s3wulq" path="res://Assets/player/Green/idle/tile004.png" id="14_a15bf"]
+[ext_resource type="Texture2D" uid="uid://b2r7bwtje2xw0" path="res://Assets/player/Green/jump/tile000.png" id="15_tjene"]
+[ext_resource type="Texture2D" uid="uid://62liw6kwo2g2" path="res://Assets/player/Green/run/tile000.png" id="16_8f4co"]
+[ext_resource type="Texture2D" uid="uid://cmexo732jbfd4" path="res://Assets/player/Green/run/tile001.png" id="17_k2gsw"]
+[ext_resource type="Texture2D" uid="uid://cwd4yvic3t0xf" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/16-Attack 2/Attack 2 01.png" id="18_f5d1n"]
+[ext_resource type="Texture2D" uid="uid://dtnoeeleifkwl" path="res://Assets/player/Green/run/tile002.png" id="18_vcwxq"]
+[ext_resource type="Texture2D" uid="uid://cvtf3movh0xuf" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/16-Attack 2/Attack 2 02.png" id="19_j0tns"]
+[ext_resource type="Texture2D" uid="uid://cl6p3ycj6e2td" path="res://Assets/player/Green/run/tile003.png" id="19_wt4dv"]
+[ext_resource type="Texture2D" uid="uid://c17qy58uwyb54" path="res://Assets/player/Green/run/tile004.png" id="20_ctleb"]
+[ext_resource type="Texture2D" uid="uid://cs6ifu8c3lpl7" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/16-Attack 2/Attack 2 03.png" id="20_rhvvf"]
+[ext_resource type="Texture2D" uid="uid://d3g4mhnbaq3b3" path="res://Assets/player/Green/run/tile005.png" id="21_u8ygf"]
+[ext_resource type="Texture2D" uid="uid://cvmn6qoba27vw" path="res://Assets/MuzzleFlash.png" id="22_oaapd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_24v3e"]
 radius = 9.0
@@ -183,6 +184,20 @@ radius = 7.0
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_q7btu")
+
+[node name="PlayerHealthbar" parent="." instance=ExtResource("2_4jkwt")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -25.0
+offset_right = 14.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
 
 [node name="Area2D" type="Area2D" parent="."]
 monitoring = false

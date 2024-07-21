@@ -3,6 +3,7 @@ class_name Player
 
 @onready var animation = $AnimationPlayer
 @onready var sprite = $Sprite2D
+@onready var player_healthbar = $PlayerHealthbar
 
 const SPEED = 250.0
 const JUMP_VELOCITY = -400.0
@@ -30,6 +31,7 @@ func _ready():
 	health = MAX_HEALTH
 	GameManager.player = self
 	#flash.visible = false
+	player_healthbar.init_health(health)
 
 func _process(_delta):
 	if Input.is_action_just_pressed("shoot") && !hit:
@@ -97,6 +99,8 @@ func take_damage(damage_amount : int):
 	
 	if health <= 0:
 		die()
+	
+	player_healthbar.health = health
 
 # Stop player taking damage infinitely
 func immune_frames():
