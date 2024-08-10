@@ -1,20 +1,20 @@
-[gd_resource type="Resource" script_class="SaveData" load_steps=2 format=3 uid="uid://cgh8eraropagb"]
+[gd_resource type="Resource" script_class="SaveData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://scripts/core/SaveData.gd" id="1_l13hy"]
+[ext_resource type="Script" path="res://scripts/core/SaveData.gd" id="1_1wti8"]
 
 [resource]
-script = ExtResource("1_l13hy")
+script = ExtResource("1_1wti8")
 level_dic = {
 "Level1": {
 "beaten": true,
-"coins": 31,
-"damage_taken": 0,
+"coins": 11,
+"damage_taken": 4,
 "damager_taken": 0,
-"enemies_beaten": 4,
+"enemies_beaten": 2,
 "max_coins": 31,
 "max_enemies_beaten": 4,
 "max_score": 560,
-"score": 560,
+"score": 260,
 "unlocked": true,
 "unlocks": "Level2"
 },

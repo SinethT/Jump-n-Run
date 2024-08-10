@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Sabertooth
 
 const DAMAGE_VALUE = 5
+const MAX_HEALTH = 5
 
 var speed = -60.0
 
@@ -10,7 +11,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var facing_right = false
 var dead = false
-const max_health = 5
 var health = 0
 var can_take_damage = true
 var current_speed = 0.0
@@ -20,7 +20,7 @@ var can_attack = true
 @export var score = 50
 
 func _ready():
-	health = max_health
+	health = MAX_HEALTH
 	$AnimationPlayer.play("run")
 
 func _physics_process(delta):
@@ -56,7 +56,7 @@ func take_damage(damage_amount : int):
 			immune_frames()
 			health -= damage_amount
 			$AnimationPlayer.play("hit")
-			get_node("healthbar").update_healthbar(health, max_health)
+			get_node("healthbar").update_healthbar(health, MAX_HEALTH)
 		
 		if health <= 0:
 			die()

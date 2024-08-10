@@ -17,10 +17,12 @@ var enemies_beaten = 0
 
 var paused =  false
 
+@onready var player_healthbar = $PlayerHealthbar
+
 func respawn_player():
-	player.health = player.MAX_HEALTH
 	if current_checkpoint != null:
 		player.position = current_checkpoint.global_position
+	
 
 func gain_coins(coins_gained:int):
 	coins += coins_gained

@@ -60,7 +60,7 @@ resource_name = "hit"
 length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -122,7 +122,7 @@ offset_top = -17.0
 offset_bottom = -17.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_nkywf")
+texture = ExtResource("1_eo8hq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.565138, -1.02811)

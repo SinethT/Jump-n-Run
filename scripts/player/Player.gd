@@ -4,6 +4,8 @@ class_name Player
 @onready var animation = $AnimationPlayer
 @onready var sprite = $Sprite2D
 @onready var player_healthbar = $PlayerHealthbar
+@onready var gunshot_sfx = $GunshotSFX
+
 
 const SPEED = 250.0
 const JUMP_VELOCITY = -400.0
@@ -98,6 +100,7 @@ func take_damage(damage_amount : int):
 		health -= damage_amount
 	
 	if health <= 0:
+		health = MAX_HEALTH
 		die()
 	
 	player_healthbar.health = health
@@ -137,6 +140,9 @@ func shoot():
 	if not facing_right:
 		bullet.rotation_degrees += 180  # Flip the bullet direction if facing left
 	get_tree().root.add_child(bullet)
+	
+	#play gunshot sound
+	gunshot_sfx.play()
 	
 	#await get_tree().create_timer(0.2).timeout
 	#flash.visible = false
