@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d24hl6yykbcsg"]
+[gd_scene load_steps=15 format=3 uid="uid://d24hl6yykbcsg"]
 
 [ext_resource type="Script" path="res://scripts/interactable/health_up.gd" id="1_0oi11"]
 [ext_resource type="Texture2D" uid="uid://d1k37jkas80dd" path="res://Treasure Hunters/Pirate Treasure/Sprites/Red Potion/01.png" id="1_u5lwn"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cdciq6craar3k" path="res://Treasure Hunters/Pirate Treasure/Sprites/Red Potion/05.png" id="5_nyxtn"]
 [ext_resource type="Texture2D" uid="uid://bd7g7s0s4bkyh" path="res://Treasure Hunters/Pirate Treasure/Sprites/Red Potion/06.png" id="6_hb1yd"]
 [ext_resource type="Texture2D" uid="uid://d1agc15l6wpe8" path="res://Treasure Hunters/Pirate Treasure/Sprites/Red Potion/07.png" id="7_2rlag"]
+[ext_resource type="AudioStream" uid="uid://m452xf7d4afi" path="res://Assets/sfx/health-up_sfx.mp3" id="10_hbs40"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vpjqm"]
 
@@ -76,5 +77,8 @@ shape = SubResource("CircleShape2D_vpjqm")
 libraries = {
 "": SubResource("AnimationLibrary_smvks")
 }
+
+[node name="HealthUpSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_hbs40")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
