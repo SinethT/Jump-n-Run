@@ -3,6 +3,7 @@ extends Node2D
 const DAMAGE_VALUE = 3
 
 @export var speed = 160.0
+
 var current_speed = 0.0
 
 @onready var spawn_pos = global_position
@@ -21,7 +22,8 @@ func _on_hitbox_area_entered(area):
 func _on_player_detect_area_entered(area):
 	if area.get_parent() is Player:
 		$AnimationPlayer.play("shake")
-		
+
+
 func fall():
 	current_speed = speed
 	await get_tree().create_timer(2.5).timeout

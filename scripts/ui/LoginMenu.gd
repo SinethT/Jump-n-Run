@@ -14,11 +14,13 @@ var greeting = "Hi %s ^_^\nWe're Almost there…"
 @onready var age_label = $AgeLabel
 @onready var input_error = $InputError
 
+
 func _ready():
 	loading_bar.visible = false
 	greeter.visible = false
 	age_label.visible = false
 	input_error.visible = false
+
 
 func _on_continue_pressed():
 	player_name = name_holder.text.capitalize()
@@ -37,9 +39,10 @@ func _on_continue_pressed():
 		age_label.visible = false
 		input_error.visible = true
 
+
 func check_age(year):
 	var current_year = Time.get_date_dict_from_system()["year"]
-	if current_year-year > 7:
+	if current_year - year > 7:
 		return true
 
 

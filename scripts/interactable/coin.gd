@@ -6,9 +6,10 @@ class_name Coin
 
 @onready var coin_collection_sfx = $CoinCollectionSFX
 
+
 func _ready():
 	$AnimationPlayer.play("idle")
-	
+
 
 func _on_area_2d_area_entered(_area):
 	self.hide()

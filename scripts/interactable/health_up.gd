@@ -1,13 +1,14 @@
 extends Node2D
 
+const HEALTH_UP = 5
+
 @onready var health_up_sfx = $HealthUpSFX
 
-
-const HEALTH_UP = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimationPlayer.play("idle")
+
 
 func _on_area_2d_area_entered(area):
 	if area.get_parent() is Player:
@@ -20,4 +21,3 @@ func _on_area_2d_area_entered(area):
 		health_up_sfx.play()
 		await health_up_sfx.finished
 		queue_free()
-	
