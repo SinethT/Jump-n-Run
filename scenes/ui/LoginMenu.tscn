@@ -499,7 +499,7 @@ theme_override_colors/font_placeholder_color = Color(0.470588, 0.470588, 0.47058
 theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = SubResource("StyleBoxFlat_avjxe")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jclck")
-placeholder_text = "Birth Year"
+placeholder_text = "Birth Year (e.g: 2015)"
 caret_blink = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
