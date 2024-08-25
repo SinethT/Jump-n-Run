@@ -4,4 +4,4 @@
 *.github/*
 jumpnrun/*
 addons/*
-*.DS_Store
+.DS_Store
