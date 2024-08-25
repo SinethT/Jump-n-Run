@@ -16,4 +16,4 @@ func _on_area_2d_area_entered(_area):
 	GameManager.score += score
 	coin_collection_sfx.play()
 	await coin_collection_sfx.finished
-	queue_free() 
+	queue_free()

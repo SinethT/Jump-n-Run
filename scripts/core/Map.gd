@@ -1,5 +1,9 @@
 extends Node2D
 
+const STAT_DISPLAY = "StatDisplay"
+
+var scene_path = "res://scenes/world_scenes/"
+var scene_extension = ".tscn"
 
 @onready var level_holder = $LevelHolder
 @onready var player = $Player
@@ -54,7 +58,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("shoot"):
 		player.get_node("AnimationPlayer").play("select")
 		await get_tree().create_timer(0.4).timeout
-		get_tree().change_scene_to_file("res://scenes/world_scenes/"+ current_level.name +".tscn")
+		get_tree().change_scene_to_file(scene_path + current_level.name + scene_extension)
 
 	if target_level and target_level.name in LevelData.level_dic and LevelData.level_dic[target_level.name]["unlocked"] and completed_movement:
 		completed_movement = false
@@ -77,22 +81,22 @@ func _process(delta):
 
 func show_stats(target_level):
 	if LevelData.level_dic[target_level.name]["unlocked"]:
-		target_level.get_node("StatDisplay").visible = true
-		target_level.get_node("StatDisplay").get_node("AnimationPlayer").play("show")
-	current_level.get_node("StatDisplay").get_node("AnimationPlayer").play("show", 0, -1.0, true)
+		target_level.get_node(STAT_DISPLAY).visible = true
+		target_level.get_node(STAT_DISPLAY).get_node("AnimationPlayer").play("show")
+	current_level.get_node(STAT_DISPLAY).get_node("AnimationPlayer").play("show", 0, -1.0, true)
 
 	if LevelData.level_dic[target_level.name]["coins"] > LevelData.level_dic[target_level.name]["max_coins"] * 80/100 and LevelData.level_dic[target_level.name]["score"] > 0:
-		target_level.get_node("StatDisplay").get_node("CoinSprite").visible = true
+		target_level.get_node(STAT_DISPLAY).get_node("CoinSprite").visible = true
 	else:
-		target_level.get_node("StatDisplay").get_node("CoinSprite").visible = false
+		target_level.get_node(STAT_DISPLAY).get_node("CoinSprite").visible = false
 	
 	if LevelData.level_dic[target_level.name]["enemies_beaten"] == LevelData.level_dic[target_level.name]["max_enemies_beaten"] and LevelData.level_dic[target_level.name]["score"] > 0:
-		target_level.get_node("StatDisplay").get_node("SkullSprite").visible = true
+		target_level.get_node(STAT_DISPLAY).get_node("SkullSprite").visible = true
 	else:
-		target_level.get_node("StatDisplay").get_node("SkullSprite").visible = false
+		target_level.get_node(STAT_DISPLAY).get_node("SkullSprite").visible = false
 	
 	if LevelData.level_dic[target_level.name]["damage_taken"] == 0 and LevelData.level_dic[target_level.name]["score"] > 0:
-		target_level.get_node("StatDisplay").get_node("HealthSprite").visible = true
+		target_level.get_node(STAT_DISPLAY).get_node("HealthSprite").visible = true
 	else:
-		target_level.get_node("StatDisplay").get_node("HealthSprite").visible = false
+		target_level.get_node(STAT_DISPLAY).get_node("HealthSprite").visible = false
 		

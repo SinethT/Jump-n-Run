@@ -3,6 +3,8 @@ extends Node
 signal gained_coins()
 signal level_beaten()
 
+const MAP = "res://scenes/world_scenes/map.tscn"
+
 var coins : int = 0
 var score : int = 0
 
@@ -49,7 +51,7 @@ func restart():
 
 func map():
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/world_scenes/map.tscn")
+	get_tree().change_scene_to_file(MAP)
 
 func quit():
 	get_tree().quit()
