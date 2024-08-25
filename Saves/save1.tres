@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SaveData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="SaveData" load_steps=2 format=3 uid="uid://cbmkc1hvp54ju"]
 
 [ext_resource type="Script" path="res://scripts/core/SaveData.gd" id="1_oy1qn"]
 
@@ -6,28 +6,15 @@
 script = ExtResource("1_oy1qn")
 level_dic = {
 "Level1": {
-"beaten": true,
-"coins": 10,
-"damage_taken": 3,
-"damager_taken": 0,
-"enemies_beaten": 0,
-"max_coins": 31,
-"max_enemies_beaten": 4,
-"max_score": 560,
-"score": 100,
-"unlocked": true,
-"unlocks": "Level2"
-},
-"Level2": {
 "beaten": false,
 "coins": 0,
-"damage_taken": 0,
+"damager_taken": 0,
 "enemies_beaten": 0,
 "max_coins": 0,
 "max_enemies_beaten": 0,
 "max_score": 0,
 "score": 0,
 "unlocked": true,
-"unlocks": "Level3"
+"unlocks": "Level2"
 }
 }
