@@ -2,3 +2,6 @@
 .godot/*
 *.import
 *.github/*
+jumpnrun/*
+addons/*
+*.DS_Store
