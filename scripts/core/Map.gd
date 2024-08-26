@@ -3,7 +3,6 @@ extends Node2D
 const STAT_DISPLAY = "StatDisplay"
 const SCENE_PATH = "res://scenes/world_scenes/"
 const SCENE_EXTENSION = ".tscn"
-const LEVEL_ICON = "LevelIcon"
 
 var levels = []
 var lerp_speed = 0.5
@@ -36,7 +35,7 @@ func update_levels():
 	# This loop iterates through the levels and updates the sprite texture based on the level's status.
 	for level in levels:
 		if level.name in LevelData.level_dic:
-			var sprite = level.get_node(LEVEL_ICON)
+			var sprite = level.get_node("Sprite2D")
 			if LevelData.level_dic[level.name]["unlocked"] == true:
 				sprite.texture = load("res://circle1.png")
 				if LevelData.level_dic[level.name]["beaten"] == true:
