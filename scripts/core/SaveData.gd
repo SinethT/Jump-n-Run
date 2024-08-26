@@ -11,7 +11,7 @@ class_name SaveData
 		"max_coins": 0,
 		"enemies_beaten": 0,
 		"max_enemies_beaten": 0,
-		"damager_taken": 0,
+		"damage_taken": 0,
 		"unlocks": "Level2",
 		"beaten": false
 	}
