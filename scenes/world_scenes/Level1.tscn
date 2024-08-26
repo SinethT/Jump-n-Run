@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://birfwtp0qcv1c"]
+[gd_scene load_steps=29 format=3 uid="uid://birfwtp0qcv1c"]
 
 [ext_resource type="Texture2D" uid="uid://b273dk1dh2efi" path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="1_f5yvq"]
 [ext_resource type="Script" path="res://scripts/core/RunTimeLevel.gd" id="1_sklh0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://borvpwmsc5fej" path="res://Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="2_jokyf"]
 [ext_resource type="Texture2D" uid="uid://bjeqm4a6kuhpb" path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/spritesheet.png" id="3_c181l"]
 [ext_resource type="FontFile" uid="uid://r4g4f3bu2a4a" path="res://Assets/GrapeSoda.ttf" id="3_ubqh2"]
+[ext_resource type="AudioStream" uid="uid://d3o37fhbeysj0" path="res://Assets/sfx/bg_music.mp3" id="4_ssav1"]
 [ext_resource type="Texture2D" uid="uid://daohciy2cwukt" path="res://Treasure Hunters/Pirate Ship/Sprites/Tilesets/Platforms (32x32).png" id="4_vo06j"]
 [ext_resource type="Texture2D" uid="uid://burylr3e3kyf7" path="res://Treasure Hunters/Pirate Ship/Sprites/Decorations/Barrels and Bottles/01.png" id="5_20t4x"]
 [ext_resource type="PackedScene" uid="uid://b5q0tae8sa0sc" path="res://scenes/interactable/checkpoint.tscn" id="7_dxj51"]
@@ -1637,6 +1638,13 @@ D/→ = Run Forawrd                              A/←  = Run Backward
 
                       "
 uppercase = true
+
+[node name="BGMusic" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-347, -204)
+scale = Vector2(1.82747, 2.1722)
+stream = ExtResource("4_ssav1")
+volume_db = -15.0
+autoplay = true
 
 [node name="UIManager" type="CanvasLayer" parent="."]
 process_mode = 3
