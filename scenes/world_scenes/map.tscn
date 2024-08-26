@@ -1,8 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://kbqrle70j4di"]
+[gd_scene load_steps=29 format=3 uid="uid://kbqrle70j4di"]
 
 [ext_resource type="Script" path="res://scripts/core/Map.gd" id="1_8pinc"]
 [ext_resource type="Texture2D" uid="uid://byxke1081cp1h" path="res://Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 1/Screenshot 2024-06-03 at 7.06.37 PM.png" id="1_ddm4k"]
 [ext_resource type="Script" path="res://scripts/core/MapLevel.gd" id="2_vl2ks"]
+[ext_resource type="FontFile" uid="uid://r4g4f3bu2a4a" path="res://Assets/GrapeSoda.ttf" id="3_c5wkt"]
 [ext_resource type="Texture2D" uid="uid://bs5jftqr38ul" path="res://circle3.png" id="4_o6ul7"]
 [ext_resource type="Texture2D" uid="uid://b3q2jl8ppslcy" path="res://Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/01.png" id="5_5ljoo"]
 [ext_resource type="Texture2D" uid="uid://cb5ndc7wdfso" path="res://Treasure Hunters/Pirate Treasure/Sprites/Golden Skull/Untitled Background Removed.png" id="6_u5u8w"]
@@ -257,6 +258,19 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_ddm4k")
+
+[node name="Guide" type="Label" parent="."]
+offset_left = -534.0
+offset_top = -191.0
+offset_right = -433.0
+offset_bottom = -140.0
+theme_override_colors/font_color = Color(0.374139, 0.374139, 0.374139, 1)
+theme_override_colors/font_shadow_color = Color(0.942823, 0.942823, 0.942823, 1)
+theme_override_fonts/font = ExtResource("3_c5wkt")
+theme_override_font_sizes/font_size = 24
+text = "Spacebar 
+to Enter"
+uppercase = true
 
 [node name="LevelHolder" type="Node2D" parent="."]
 
