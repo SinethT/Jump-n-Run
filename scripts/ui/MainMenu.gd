@@ -1,7 +1,7 @@
 extends Control
 
 const LOGIN_MENU = "res://scenes/ui/LoginMenu.tscn"
-const OPTIONS = "res://scenes/ui/options.tscn"
+const ERROR404 = "res://scenes/ui/error404.tscn"
 const MAIN_MENU = "res://scenes/ui/MainMenu.tscn"
 
 
@@ -10,7 +10,7 @@ func _on_start_pressed():
 
 
 func _on_options_pressed():
-	get_tree().change_scene_to_file(OPTIONS)
+	get_tree().change_scene_to_file(ERROR404)
 
 
 func _on_exit_pressed():
