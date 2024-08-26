@@ -9,6 +9,7 @@ var lerp_speed = 0.5
 var lerp_progress = 0.0
 var completed_movement = true
 var lerp_threshold = 0.1
+var level_icon = "LevelIcon"
 
 @onready var level_holder = $LevelHolder
 @onready var player = $Player
@@ -30,7 +31,7 @@ func _ready():
 func update_levels():
 	for level in levels:
 		if level.name in LevelData.level_dic:
-			var sprite = level.get_node("Sprite2D")
+			var sprite = level.get_node(level_icon)
 			if LevelData.level_dic[level.name]["unlocked"] == true:
 				sprite.texture = load("res://circle1.png")
 				if LevelData.level_dic[level.name]["beaten"] == true:
