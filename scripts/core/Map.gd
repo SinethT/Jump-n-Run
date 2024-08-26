@@ -17,8 +17,11 @@ var lerp_threshold = 0.1
 
 
 func _ready():
+	# Loads the game data from the save file (data mesh)
 	SaveManager.load_game()
+	# Plays the idle animation while in the map
 	player.get_node("AnimationPlayer").play("idle")
+	# Get levels from the level holder (node witl all levels)
 	levels = level_holder.get_children()
 	update_levels()
 
@@ -29,6 +32,8 @@ func _ready():
 
 
 func update_levels():
+
+	# This loop iterates through the levels and updates the sprite texture based on the level's status.
 	for level in levels:
 		if level.name in LevelData.level_dic:
 			var sprite = level.get_node(LEVEL_ICON)
@@ -43,7 +48,7 @@ func update_levels():
 
 func _process(delta):
 	var target_level: Node2D
-
+	# Navigation in the map/level directory
 	if Input.is_action_just_pressed("go_up"):
 		if current_level.up:
 			target_level = current_level.up
@@ -57,8 +62,10 @@ func _process(delta):
 		if current_level.right:
 			target_level = current_level.right
 
+	# Spacebar is assigned to 'shoot' action (using that cuz we're using the same key)
 	if Input.is_action_just_pressed("shoot"):
 		player.get_node("AnimationPlayer").play("select")
+		# Gives time for the animation to play before changing the scene
 		await get_tree().create_timer(0.4).timeout
 		get_tree().change_scene_to_file(SCENE_PATH + current_level.name + SCENE_EXTENSION)
 
@@ -68,6 +75,9 @@ func _process(delta):
 		and LevelData.level_dic[target_level.name]["unlocked"]
 		and completed_movement
 	):
+		# During the movement, the player's position is interpolated towards the target level's global position.
+		# The interpolation progress is controlled by lerp_progress, which is incremented by lerp_speed multiplied by delta.
+		# The player's position is updated using the lerp function.
 		completed_movement = false
 		player.get_node("AnimationPlayer").play("run")
 		lerp_progress = 0
@@ -80,7 +90,9 @@ func _process(delta):
 				break
 
 			await get_tree().create_timer(delta).timeout
+		# The player's position is set to the target level's global position
 		player.position = target_level.global_position
+		# Display the stats of the target level.
 		show_stats(target_level)
 		current_level = target_level
 		player.get_node("AnimationPlayer").play("idle")
@@ -93,6 +105,7 @@ func show_stats(target_level):
 		target_level.get_node(STAT_DISPLAY).get_node("AnimationPlayer").play("show")
 	current_level.get_node(STAT_DISPLAY).get_node("AnimationPlayer").play("show", 0, -1.0, true)
 
+	# If collected 85% of coins
 	if (
 		(
 			LevelData.level_dic[target_level.name]["coins"]
@@ -104,6 +117,7 @@ func show_stats(target_level):
 	else:
 		target_level.get_node(STAT_DISPLAY).get_node("CoinSprite").visible = false
 
+	# If killed all the enemies
 	if (
 		(
 			LevelData.level_dic[target_level.name]["enemies_beaten"]
@@ -115,6 +129,7 @@ func show_stats(target_level):
 	else:
 		target_level.get_node(STAT_DISPLAY).get_node("SkullSprite").visible = false
 
+	# If completed levle without getting damaged
 	if (
 		LevelData.level_dic[target_level.name]["damage_taken"] == 0
 		and LevelData.level_dic[target_level.name]["score"] > 0
