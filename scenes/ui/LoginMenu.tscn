@@ -488,7 +488,7 @@ theme_override_colors/font_placeholder_color = Color(0.470076, 0.470076, 0.47007
 theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = SubResource("StyleBoxFlat_avjxe")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jclck")
-placeholder_text = "Name"
+placeholder_text = "Name (max. 15 char)"
 caret_blink = true
 
 [node name="BirthYear" type="TextEdit" parent="VBoxContainer"]

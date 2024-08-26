@@ -13,6 +13,9 @@ var greeting = "Hi %s ^_^\nWe're Almost there…"
 @onready var greeter = $Greeter
 @onready var age_label = $AgeLabel
 @onready var input_error = $InputError
+@onready var name_box = $VBoxContainer/Name
+@onready var birth_year_box = $VBoxContainer/BirthYear
+@onready var continue_button = $HBoxContainer/Continue
 
 
 func _ready():
@@ -20,23 +23,37 @@ func _ready():
 	greeter.visible = false
 	age_label.visible = false
 	input_error.visible = false
-
+	name_box.grab_focus()
+	
+func _input(event):
+	if name_box.has_focus():
+		if event.is_action_pressed("enter") or event.is_action_pressed("tab"):
+				accept_event()
+				birth_year_box.grab_focus()
+	elif birth_year_box.has_focus():
+		if event.is_action_pressed("enter"):
+				accept_event()
+				continue_button.emit_signal("pressed")
 
 func _on_continue_pressed():
-	player_name = name_holder.text.capitalize()
-	greeter.text = greeting % player_name
-	if year_holder.text.is_valid_int():
-		birth_year = int(year_holder.text)
-		if check_age(birth_year):
-			loading_bar.visible = true
-			loading_bar.play()
-			greeter.visible = true
-			await loading_bar.animation_finished
-			get_tree().change_scene_to_file(LEVEL1)
+	if name_holder.text.length() <= 15:
+		player_name = name_holder.text.capitalize()
+		greeter.text = greeting % player_name
+		if year_holder.text.is_valid_int():
+			birth_year = int(year_holder.text)
+			if check_age(birth_year):
+				loading_bar.visible = true
+				loading_bar.play()
+				greeter.visible = true
+				await loading_bar.animation_finished
+				get_tree().change_scene_to_file(LEVEL1)
+			else:
+				input_error.visible = false
+				age_label.visible = true
 		else:
-			age_label.visible = true
+			age_label.visible = false
+			input_error.visible = true
 	else:
-		age_label.visible = false
 		input_error.visible = true
 
 
