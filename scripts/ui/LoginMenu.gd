@@ -42,7 +42,7 @@ func _on_continue_pressed():
 
 func check_age(year):
 	var current_year = Time.get_date_dict_from_system()["year"]
-	if current_year - year > 7:
+	if current_year - year > 7 and current_year - year < 100:
 		return true
 
 
