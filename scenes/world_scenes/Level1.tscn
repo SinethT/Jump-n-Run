@@ -1779,12 +1779,12 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 166.0
+offset_left = 157.0
 offset_top = -39.0
-offset_right = 231.0
+offset_right = 236.0
 offset_bottom = -8.0
 grow_vertical = 0
-text = "Resume"
+text = "Continue"
 
 [node name="Player" parent="." instance=ExtResource("2_eqd5j")]
 z_index = 1
