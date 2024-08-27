@@ -3,6 +3,7 @@ class_name Sabertooth
 
 const DAMAGE_VALUE = 5
 const MAX_HEALTH = 5
+const IMMUNE_TIME = 0.5
 
 @export var score = 50
 
@@ -86,7 +87,7 @@ func get_hit():
 func immune_frames():
 	# Prevent taking damage within this timer
 	can_take_damage = false
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(IMMUNE_TIME).timeout
 	can_take_damage = true
 
 
