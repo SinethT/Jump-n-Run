@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/ui/MainMenu.gd" id="1_rhrfi"]
 [ext_resource type="Texture2D" uid="uid://bddooo6ce63lc" path="res://Assets/loading-screen-cat.png" id="2_2btuc"]
-[ext_resource type="FontFile" uid="uid://r4g4f3bu2a4a" path="res://Assets/GrapeSoda.ttf" id="3_vn001"]
+[ext_resource type="FontFile" uid="uid://r4g4f3bu2a4a" path="res://Assets/fonts/GrapeSoda.ttf" id="3_vn001"]
 
 [node name="Error404" type="Control"]
 layout_mode = 3

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/ui/LoginMenu.gd" id="1_ypieh"]
 [ext_resource type="Texture2D" uid="uid://bmgaftg46twi4" path="res://Assets/menubg.jpg" id="2_fvdmj"]
-[ext_resource type="FontFile" uid="uid://r4g4f3bu2a4a" path="res://Assets/GrapeSoda.ttf" id="3_23wx6"]
+[ext_resource type="FontFile" uid="uid://r4g4f3bu2a4a" path="res://Assets/fonts/GrapeSoda.ttf" id="3_23wx6"]
 [ext_resource type="Texture2D" uid="uid://bo11hrrkxrung" path="res://Assets/ezgif-3-d86ce0ab60-png-split/ezgif-frame-001.png" id="4_j0dph"]
 [ext_resource type="Texture2D" uid="uid://yql4as4jngmg" path="res://Assets/ezgif-3-d86ce0ab60-png-split/ezgif-frame-002.png" id="5_drurp"]
 [ext_resource type="Texture2D" uid="uid://cotutxg4pushn" path="res://Assets/ezgif-3-d86ce0ab60-png-split/ezgif-frame-003.png" id="6_nivif"]

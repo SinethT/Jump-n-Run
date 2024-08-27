@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://jmcta72l23in" path="res://scenes/entities/player.tscn" id="2_eqd5j"]
 [ext_resource type="Texture2D" uid="uid://borvpwmsc5fej" path="res://Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="2_jokyf"]
 [ext_resource type="Texture2D" uid="uid://bjeqm4a6kuhpb" path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/spritesheet.png" id="3_c181l"]
-[ext_resource type="FontFile" uid="uid://r4g4f3bu2a4a" path="res://Assets/GrapeSoda.ttf" id="3_ubqh2"]
+[ext_resource type="FontFile" uid="uid://r4g4f3bu2a4a" path="res://Assets/fonts/GrapeSoda.ttf" id="3_ubqh2"]
 [ext_resource type="AudioStream" uid="uid://d3o37fhbeysj0" path="res://Assets/sfx/bg_music.mp3" id="4_ssav1"]
 [ext_resource type="Texture2D" uid="uid://daohciy2cwukt" path="res://Treasure Hunters/Pirate Ship/Sprites/Tilesets/Platforms (32x32).png" id="4_vo06j"]
 [ext_resource type="Texture2D" uid="uid://burylr3e3kyf7" path="res://Treasure Hunters/Pirate Ship/Sprites/Decorations/Barrels and Bottles/01.png" id="5_20t4x"]
