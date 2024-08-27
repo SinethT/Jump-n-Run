@@ -104,7 +104,7 @@ func show_stats(target_level):
 		target_level.get_node(STAT_DISPLAY).get_node("AnimationPlayer").play("show")
 	current_level.get_node(STAT_DISPLAY).get_node("AnimationPlayer").play("show", 0, -1.0, true)
 
-	# If collected 85% of coins
+	# If collected 85% of coins: coin achievement
 	if (
 		(
 			LevelData.level_dic[target_level.name]["coins"]
@@ -116,7 +116,7 @@ func show_stats(target_level):
 	else:
 		target_level.get_node(STAT_DISPLAY).get_node("CoinSprite").visible = false
 
-	# If killed all the enemies
+	# If killed all the enemies: skull achievement
 	if (
 		(
 			LevelData.level_dic[target_level.name]["enemies_beaten"]
@@ -128,7 +128,7 @@ func show_stats(target_level):
 	else:
 		target_level.get_node(STAT_DISPLAY).get_node("SkullSprite").visible = false
 
-	# If completed levle without getting damaged
+	# If completed level without getting damaged: heart achievement
 	if (
 		LevelData.level_dic[target_level.name]["damage_taken"] == 0
 		and LevelData.level_dic[target_level.name]["score"] > 0
