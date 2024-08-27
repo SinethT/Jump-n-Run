@@ -9,7 +9,7 @@ var health = 0:
 
 # Initializes the health of the player's health bar
 func init_health(_health):
-	_health = health
+	health = _health
 	max_value = health
 	value = health
 	damage_bar.max_value = health

@@ -35,3 +35,6 @@ func _on_map_pressed():
 
 func _on_quit_pressed():
 	GameManager.quit()
+
+func _on_finish_level_pressed():
+	GameManager.map()
