@@ -35,19 +35,3 @@ func _on_map_pressed():
 
 func _on_quit_pressed():
 	GameManager.quit()
-
-
-func _on_finish_level_pressed():
-	GameManager.map()
-
-
-func _on_start_pressed():
-	print("Start pressed")
-
-
-func _on_options_pressed():
-	print("Options pressed")
-
-
-func _on_exit_pressed():
-	print("exit pressed")
