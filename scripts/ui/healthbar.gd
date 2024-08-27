@@ -6,5 +6,7 @@ var fill_amount: float
 
 
 func update_healthbar(health, max_health):
+
+	# Calculates the fill amount of the health bar based on the current health and max health
 	fill_amount = (float(health) / max_health) * fill_max
 	$ColorRect.size.x = fill_amount

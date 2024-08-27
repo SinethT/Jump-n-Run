@@ -55,15 +55,15 @@ func _physics_process(delta):
 		shootingpoint.position.x = abs(shootingpoint.position.x)
 		#flash.scale.x = abs(flash.scale.x)
 
-	# Add the gravity.
+	# Add the gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	# Handle jump.
+	# Handle jump
 	if Input.is_action_just_pressed("go_up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	# Get the input direction and handle the movement/deceleration.
+	# Get the input direction and handle the movement/deceleration
 	var direction = Input.get_axis("go_left", "go_right")
 	if direction:
 		velocity.x = direction * SPEED
@@ -78,6 +78,7 @@ func _physics_process(delta):
 
 
 func update_animation():
+	# Handling animation according to the pkayer's status
 	if !attacking && !hit:
 		if velocity.x != 0:
 			animation.play("run")
@@ -92,37 +93,44 @@ func update_animation():
 
 func take_damage(damage_amount: int):
 	if can_take_damage:
+		# Prevents taking damage constantly
 		immune_frames()
 		hit = true
 		attacking = false
 		animation.play("hit")
+		# Update game stats
 		GameManager.damage_taken += 1
+		# Decrease the health 
 		health -= damage_amount
 
 	if health <= 0:
+		# Reinitialize health before respawning 
 		health = MAX_HEALTH
 		die()
 
+	# Updates the healthbar
 	player_healthbar.health = health
 
 
-# Stop player taking damage infinitely
 func immune_frames():
+	# Prevent taking damage within this timer
 	can_take_damage = false
 	await get_tree().create_timer(1).timeout
 	can_take_damage = true
 
 
-# Drop through the platform
+# Allows falling through the platform
 func _input(event):
 	if event.is_action_pressed("go_down") && is_on_floor():
 		position.y += 5
 
 
 func die():
+	# Respawning the player 
 	GameManager.respawn_player()
 
 
+# For future ref; if player uses a melee weapon
 func attack():
 	var overlapping_objects = $AttackArea.get_overlapping_areas()
 
@@ -138,15 +146,17 @@ func shoot():
 	#flash.position = shootingpoint.position + Vector2(abs(2), abs(0.5))
 	#flash.visible = true
 
+	# Instantiates a bullet and sets its position & rotation based on the shooting point
 	var bullet = bullet_scene.instantiate()
 	bullet.position = shootingpoint.global_position
 	bullet.rotation_degrees = shootingpoint.global_rotation_degrees
 
 	if not facing_right:
-		bullet.rotation_degrees += 180  # Flip the bullet direction if facing left
+		# Flip the bullet direction if facing left
+		bullet.rotation_degrees += 180
 	get_tree().root.add_child(bullet)
 
-	#play gunshot sound
+	# Play gunshot sound
 	gunshot_sfx.play()
 
 	#await get_tree().create_timer(0.2).timeout

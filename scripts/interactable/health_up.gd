@@ -11,6 +11,7 @@ func _ready():
 
 
 func _on_area_2d_area_entered(area):
+	# Increases player's health when he entered
 	if area.get_parent() is Player:
 		if area.get_parent().health < area.get_parent().MAX_HEALTH:
 			#print(area.get_parent().health)
@@ -20,4 +21,5 @@ func _on_area_2d_area_entered(area):
 		self.hide()
 		health_up_sfx.play()
 		await health_up_sfx.finished
+		# Make the health-up disappear
 		queue_free()

@@ -1,5 +1,6 @@
 extends Node
 
+# Multidimensional dic to store all levels and data 
 var level_dic = {
 	"Level1":
 	{
@@ -18,6 +19,7 @@ var level_dic = {
 
 
 func generate_level(level):
+	# Genrates the next level dic
 	if level not in level_dic:
 		level_dic[level] = {
 			"unlocked": false,
@@ -34,6 +36,7 @@ func generate_level(level):
 
 
 func generate_level_id(level):
+	# Genrates the id of next level when player beats current 
 	var level_id = ""
 	for character in level:
 		if character.is_valid_int():
@@ -53,6 +56,7 @@ func update_level(
 	damage_taken: int,
 	beaten: bool,
 ):
+	# Assign values to the level dic 
 	level_dic[level]["score"] = score
 	level_dic[level]["max_score"] = max_score
 	level_dic[level]["coins"] = coins

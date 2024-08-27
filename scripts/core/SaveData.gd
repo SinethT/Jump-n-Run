@@ -1,6 +1,7 @@
 extends Resource
 class_name SaveData
 
+# Defined default multidimensional dictionary for the data mesh for saving
 @export var level_dic = {
 	"Level1":
 	{

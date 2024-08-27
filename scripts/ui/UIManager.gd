@@ -10,12 +10,14 @@ func _ready():
 
 
 func _process(_delta):
+	# Toggles the pause state of the game when the "esc" key is pressed.
 	if Input.is_action_just_pressed("esc"):
 		get_tree().paused = GameManager.paused
 		GameManager.pause_play()
 
 
 func update_coin_display(_gained_coins):
+	# Updates coin stat 
 	$CoinDisplay.text = str(GameManager.coins)
 
 

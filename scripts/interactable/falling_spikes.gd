@@ -14,6 +14,7 @@ func _physics_process(delta):
 
 
 func _on_hitbox_area_entered(area):
+	# Player takes damage if he gets hit
 	if area.get_parent() is Player:
 		area.get_parent().take_damage(DAMAGE_VALUE)
 		queue_free()
@@ -25,6 +26,7 @@ func _on_player_detect_area_entered(area):
 
 
 func fall():
+	# Fall down until the timeout
 	current_speed = speed
 	await get_tree().create_timer(2.5).timeout
 	position = spawn_pos

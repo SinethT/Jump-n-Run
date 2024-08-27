@@ -7,7 +7,7 @@ const MAX_HEALTH = 5
 @export var score = 50
 
 var speed = -60.0
-# Get the gravity from the project settings to be synced with RigidBody nodes.
+# Get default gravity setting in the project from Godot
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var facing_right = false
 var dead = false
@@ -24,10 +24,12 @@ func _ready():
 
 
 func _physics_process(delta):
-	# Add the gravity.
 	if not is_on_floor():
+		# Updates the vertical velocity of the enemy based on gravity and delta time.
+		#   - delta: The time elapsed since the last frame.
 		velocity.y += gravity * delta
 
+	# If RayCast is not colliding, flip enemy's direction
 	if !$RayCast2D.is_colliding() && is_on_floor():
 		flip()
 
@@ -36,15 +38,17 @@ func _physics_process(delta):
 
 
 func flip():
+	# Keep track of the direction using a bool
 	facing_right = !facing_right
 
+	# Changes the x and speed to flip the enemy
 	scale.x = abs(scale.x) * -1
 	if facing_right:
 		speed = abs(speed)
 	else:
 		speed = abs(speed) * -1
 
-
+# Player takes damage if he entered enemy's area
 func _on_hitbox_area_entered(area):
 	if area.get_parent() is Player and !dead and can_attack:
 		area.get_parent().take_damage(DAMAGE_VALUE)
@@ -53,9 +57,12 @@ func _on_hitbox_area_entered(area):
 func take_damage(damage_amount: int):
 	if !dead:
 		if can_take_damage:
+			# Immune frames prevent taking damage constantly
 			immune_frames()
+			# Decrease the health
 			health -= damage_amount
 			$AnimationPlayer.play("hit")
+			# Updates the healthbar
 			get_node("healthbar").update_healthbar(health, MAX_HEALTH)
 
 		if health <= 0:
@@ -65,6 +72,7 @@ func take_damage(damage_amount: int):
 func get_hit():
 	hit = !hit
 
+	# If hit make it stop for a movement
 	if hit:
 		current_speed = speed
 		speed = 0
@@ -76,12 +84,14 @@ func get_hit():
 
 
 func immune_frames():
+	# Prevent taking damage within this timer
 	can_take_damage = false
 	await get_tree().create_timer(0.5).timeout
 	can_take_damage = true
 
 
 func die():
+	# Update game stats
 	GameManager.enemies_beaten += 1
 	GameManager.score += score
 	dead = true

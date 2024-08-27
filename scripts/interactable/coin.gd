@@ -12,9 +12,11 @@ func _ready():
 
 
 func _on_area_2d_area_entered(_area):
+	# Updates the stats make coin disappear when player entered
 	self.hide()
 	GameManager.gain_coins(coins)
 	GameManager.score += score
+	# Play SFX
 	coin_collection_sfx.play()
 	await coin_collection_sfx.finished
 	queue_free()
