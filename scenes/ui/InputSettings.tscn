@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqr5syhkghq70"]
+
+[ext_resource type="Script" path="res://scripts/ui/InputSettings.gd" id="1_m3ukk"]
+[ext_resource type="PackedScene" uid="uid://bwtp8b0fmojw2" path="res://scenes/ui/InputButton.tscn" id="1_u140r"]
+[ext_resource type="Texture2D" uid="uid://bmgaftg46twi4" path="res://Assets/menubg.jpg" id="2_jq7np"]
+[ext_resource type="FontFile" uid="uid://d2mbsorw86xwm" path="res://Assets/fonts/superstar_memesbruh03.ttf" id="3_jjmf5"]
+
+[node name="InputSettings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m3ukk")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_jq7np")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -266.0
+offset_top = -196.0
+offset_right = 266.0
+offset_bottom = 196.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 532.0
+offset_bottom = 392.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ActionList" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InputButton" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("1_u140r")]
+layout_mode = 2
+
+[node name="InputButton2" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("1_u140r")]
+layout_mode = 2
+
+[node name="InputButton3" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("1_u140r")]
+layout_mode = 2
+
+[node name="InputButton4" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("1_u140r")]
+layout_mode = 2
+
+[node name="InputButton5" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("1_u140r")]
+layout_mode = 2
+
+[node name="ResetButton" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_jjmf5")
+theme_override_font_sizes/font_size = 30
+text = "Reset to Default"
+
+[node name="back_to_mainmenu" type="Button" parent="."]
+offset_right = 46.0
+offset_bottom = 31.0
+text = "<"
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="back_to_mainmenu" to="." method="_on_back_to_mainmenu_pressed"]
