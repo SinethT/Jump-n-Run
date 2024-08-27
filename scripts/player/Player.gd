@@ -4,6 +4,7 @@ class_name Player
 const SPEED = 250.0
 const JUMP_VELOCITY = -400.0
 const MAX_HEALTH = 20
+const IMMUNE_TIME = 1.0
 
 @export var attacking = false
 @export var hit = false
@@ -115,7 +116,7 @@ func take_damage(damage_amount: int):
 func immune_frames():
 	# Prevent taking damage within this timer
 	can_take_damage = false
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(IMMUNE_TIME).timeout
 	can_take_damage = true
 
 
