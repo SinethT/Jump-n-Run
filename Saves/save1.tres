@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="SaveData" load_steps=2 format=3 uid="uid://c08j1k28wvar0"]
+[gd_resource type="Resource" script_class="SaveData" load_steps=2 format=3 uid="uid://jx1kgiht5nwm"]
 
-[ext_resource type="Script" path="res://scripts/core/SaveData.gd" id="1_vsdfh"]
+[ext_resource type="Script" path="res://scripts/core/SaveData.gd" id="1_1meb4"]
 
 [resource]
-script = ExtResource("1_vsdfh")
+script = ExtResource("1_1meb4")
 level_dic = {
 "Level1": {
 "beaten": false,
