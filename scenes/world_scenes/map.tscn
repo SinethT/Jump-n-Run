@@ -277,7 +277,7 @@ uppercase = true
 [node name="Level1" type="Node2D" parent="LevelHolder" node_paths=PackedStringArray("down", "right")]
 position = Vector2(-223, -121)
 script = ExtResource("2_vl2ks")
-down = NodePath("../Level3")
+down = NodePath("../Level4")
 right = NodePath("../Level2")
 
 [node name="Sprite2D" type="Sprite2D" parent="LevelHolder/Level1"]
@@ -309,7 +309,7 @@ libraries = {
 position = Vector2(147, -145)
 script = ExtResource("2_vl2ks")
 up = NodePath("")
-down = NodePath("../Level4")
+down = NodePath("../Level3")
 left = NodePath("../Level1")
 right = NodePath("")
 
@@ -338,12 +338,11 @@ libraries = {
 "": SubResource("AnimationLibrary_1otjr")
 }
 
-[node name="Level3" type="Node2D" parent="LevelHolder" node_paths=PackedStringArray("up", "right")]
-position = Vector2(-225, 203)
+[node name="Level3" type="Node2D" parent="LevelHolder" node_paths=PackedStringArray("up", "left")]
+position = Vector2(124, 91)
 script = ExtResource("2_vl2ks")
-up = NodePath("../Level1")
-left = NodePath("")
-right = NodePath("../Level4")
+up = NodePath("../Level2")
+left = NodePath("../Level4")
 
 [node name="Sprite2D" type="Sprite2D" parent="LevelHolder/Level3"]
 texture = ExtResource("4_o6ul7")
@@ -370,12 +369,12 @@ libraries = {
 "": SubResource("AnimationLibrary_1otjr")
 }
 
-[node name="Level4" type="Node2D" parent="LevelHolder" node_paths=PackedStringArray("up", "left")]
-position = Vector2(124, 91)
+[node name="Level4" type="Node2D" parent="LevelHolder" node_paths=PackedStringArray("up", "right")]
+position = Vector2(-225, 203)
 script = ExtResource("2_vl2ks")
-up = NodePath("../Level2")
+up = NodePath("../Level1")
 down = NodePath("")
-left = NodePath("../Level3")
+right = NodePath("../Level3")
 
 [node name="Sprite2D" type="Sprite2D" parent="LevelHolder/Level4"]
 texture = ExtResource("4_o6ul7")
