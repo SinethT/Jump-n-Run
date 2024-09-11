@@ -80,7 +80,7 @@ func _physics_process(delta):
 
 func update_animation():
 	# Handling animation according to the pkayer's status
-	if !attacking && !hit:
+	if !attacking and !hit:
 		if velocity.x != 0:
 			animation.play("run")
 		else:
